@@ -1,0 +1,41 @@
+---
+title: "PCA"
+author: "Akash"
+date: '2022-06-16'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+data("mtcars")
+mtcars
+
+
+```
+```{r}
+mtcars_x<- prcomp(mtcars[,c(1:7,10,11)], scale=TRUE)
+str(mtcars_x)
+
+```
+```{r}
+library(ggplot2)
+#dot plot
+ggplot(mtcars, aes(x=mpg, y=cyl)) + 
+  geom_point(col="darkblue", size=1.8)+
+  labs(title="DOT PLOT", 
+       subtitle="mpg vs cyl", 
+       caption="source: mtcars")
+
+
+```
+```{r}
+
+library(devtools)
+#install_github("vqv/ggbiplot")
+library(ggbiplot)
+ggbiplot(mtcars_x, labels = rownames(mtcars))
+```
+

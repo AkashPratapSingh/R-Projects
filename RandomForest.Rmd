@@ -1,0 +1,37 @@
+---
+title: "RandomForest"
+author: "Akash"
+date: '2022-05-18'
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+## R Markdown
+
+This is an implementation of Random Forest in R. The party package is used here with dataset readingSkills. The head() used here gives us the first 6 records.
+
+
+```{r party}
+install.packages("party")
+library(party)
+install.packages("randomForest")
+library(randomForest)
+```
+
+##R Markdown 
+The randomForest() function is used in R for implementing randomForest. The package reading skills used here has four columns nativeSpeakers, "age", shoeSize, and score. All are taken into consideration. 
+
+```{r party}
+r_forest <- randomForest(nativeSpeaker ~ age + shoeSize + score,data=readingSkills)
+```
+
+## Printing the result
+
+You can also embed plots, for example:
+
+```{r party}
+print(r_forest)
+```
+## Above result predicts the random forest in R.
